@@ -19,7 +19,7 @@ app.use(express.static("public"));
 //Parse URL-encoded dta for form inputs
 app.use(express.urlencoded({ extended: true }));
 
-app.listen(3000);
+app.listen(5000);
 
 //Passing products into EJS (sample products)
 app.get("/", (req, res) => {
