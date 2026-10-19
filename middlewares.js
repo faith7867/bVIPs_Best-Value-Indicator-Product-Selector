@@ -32,10 +32,14 @@ exports.bypassLogin = (request, response, next) => {
 } 
 
 exports.createCaptcha = (req, res, next) => {
-    const captcha = exports.generateCaptchaValue();
-
-    req.session.captcha = captcha;
-    res.locals.captcha = captcha;
+    if(!req.session.captcha) {
+        req.session.captcha = exports.generateCaptchaValue();
+    }
+    console.log("CREATE CAPTCHA");
+    console.log("path:", req.path);
+    console.log("session id:", req.sessionID);
+    console.log("captcha in session:", req.session.captcha);
+    console.log("--------------------");
 
     next();
 };
